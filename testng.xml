@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+
+    <parameter name="login" value="standard_user"></parameter>
+    <parameter name="password" value="secret_sauce"></parameter>
+
+    <test verbose="2" preserve-order="true" name="C:/Users/ArleKING/IdeaProjects/test_maven">
+
+        <classes>
+
+            <class name="org.example.TestLoginPage"></class>
+
+            <class name="org.example.TestFirstPage"></class>
+        </classes>
+
+    </test>
+</suite>
