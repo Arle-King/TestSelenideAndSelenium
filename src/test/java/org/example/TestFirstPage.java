@@ -39,13 +39,15 @@ public class TestFirstPage {
 
     @Test
     public void test1() {
+        /*
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\ArleKING\\IdeaProjects\\test_maven\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         WebDriverRunner.setWebDriver(driver);
+         */
 
         String login = "standard_user";
         String password = "secret_sauce";
-        String nameItem = "add-to-cart-sauce-labs-backpack";
+        //String nameItem = "add-to-cart-sauce-labs-backpack";
 
         TestLoginPage lp = new TestLoginPage();
         lp.openLoginPage(login, password); //логинимся с помощью selenide
@@ -53,12 +55,15 @@ public class TestFirstPage {
 
         //Находим 1й элемент и тащим из атрибутов название, описание и цену
         //using selenium
+        WebDriver driver = WebDriverRunner.getWebDriver(); // <- сам додумал, где в итернетах это вообще найти?
+
         WebElement FirstItem  = driver.findElement(By.xpath("//div[@class= 'inventory_item_name '][1]"));
         String Name = FirstItem.getAttribute("textContent");
         FirstItem  = driver.findElement(By.xpath("//div[@class= 'inventory_item_desc'][1]"));
         String Comment = FirstItem.getAttribute("textContent");
         FirstItem  = driver.findElement(By.xpath("//div[@class= 'inventory_item_price'][1]"));
         String Price = FirstItem.getAttribute("textContent");
+        System.out.println("Selenium:");
         System.out.println(Name);
         System.out.println(Comment);
         System.out.println(Price);
@@ -66,7 +71,6 @@ public class TestFirstPage {
         driver.findElement(By.id("item_4_title_link")).click();
 
         //Опять работаем с selenide
-        System.out.println("Selenium:");
         String Name2 = $(By.className("inventory_details_name")).getAttribute("textContent");
         String Comment2 = $(By.className("inventory_details_desc")).getAttribute("textContent");
         String Price2 = $(By.className("inventory_details_price")).getAttribute("textContent");
