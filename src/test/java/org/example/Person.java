@@ -1,61 +1,64 @@
 package org.example;
 
-import org.apache.commons.lang3.ObjectUtils;
-import org.junit.Test;
-
 public class Person {
 
-    public String name;
-    public String secondName;
-    public int age;
-    public int classLen;
+    private String name;
+    private String secondName;
+    private int age;
+    private int classLen;
 
-    public Person(String name, String secondName, int age, int classLen) {
-        this.name = name;
-        this.secondName = secondName;
-        this.age = age;
-        this.classLen = classLen;
-    }
+    private Person() {}
 
     public static PersonBuilder builder() {
-        return  new PersonBuilder("",  "", 0, 0);
+        return new PersonBuilder();
     }
 
     public static class PersonBuilder extends Person{
 
-        public PersonBuilder(String name, String secondName, int age, int classLen) {
-            super(name, secondName, age, classLen);
+        Person person;
+
+        private PersonBuilder() {
+            person = new Person();
         }
-        /*
-        public String name;
-        public String secondName;
-        public int age;
-        public int classLen;
-        */
 
         public PersonBuilder name(String name) {
-            this.name = name;
+            person.name = name;
             return this;
         }
 
         public PersonBuilder secondName(String secondName) {
-            this.secondName = secondName;
+            person.secondName = secondName;
             return this;
         }
 
         public PersonBuilder age(int age) {
-            this.age = age;
+            person.age = age;
             return this;
         }
 
         public PersonBuilder classLen(int classLen) {
-            this.classLen = classLen;
+            person.classLen = classLen;
             return this;
         }
 
         public Person build() {
-            return new Person(name, secondName, age, classLen);
+            return person;
         }
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public int getClassLen() {
+        return classLen;
+    }
 }

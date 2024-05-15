@@ -32,8 +32,8 @@ public class AppTest {
 
         Person man = Man(name, secondName, age);
         Person student = Student(name, secondName, age, classLen);
-        System.out.println("man info:"  + man.name + " " + man.secondName + " " + man.age + " " + man.classLen);
-        System.out.println("strudent info:"  + student.name + " " + student.secondName + " " + student.age + " " + student.classLen);
+        System.out.println("man info:" + man.getName() + " " + man.getSecondName() + " " + man.getAge() + " " + man.getClassLen());
+        System.out.println("student info:" + student.getName() + " " + student.getSecondName() + " " + student.getAge() + " " + student.getClassLen());
     }
 
 }
